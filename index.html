@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa | Personal Portfolio</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS CUSTOM -->
+    <style>
+        :root {
+            --primary: #123c69;
+            --secondary: #087eaa;
+            --accent: #00b4d8;
+            --dark: #102a43;
+            --light: #f4f8fc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        .navbar-brand {
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: #526579;
+            font-weight: 600;
+            margin-left: 12px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #102a43, #087eaa);
+            color: white;
+            padding: 90px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #7ee8fa;
+        }
+
+        .hero p {
+            color: #d8eaf4;
+            line-height: 1.8;
+        }
+
+        
+        /* FOTO PROFIL */
+        .profile-photo {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 7px solid rgba(255,255,255,0.35);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            transition: 0.4s ease;
+        }
+
+        /* EFEK HOVER */
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+        }
+
+
+        .btn-custom {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #0096c7;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* GENERAL SECTION */
+        .section-padding {
+            padding: 85px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: #718096;
+        }
+
+        .section-title span {
+            color: var(--secondary);
+        }
+
+        /* ABOUT */
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            line-height: 1.9;
+        }
+
+        /* EDUCATION */
+        .education-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .education-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        /* SKILLS */
+        .skill-card {
+            background: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            background-color: #e5f8fc;
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: linear-gradient(135deg, #102a43, #087eaa);
+            color: white;
+        }
+
+        .contact-section h2 {
+            font-weight: 800;
+        }
+
+        #pesan {
+            color: #7ee8fa;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0b1f33;
+            color: #cbd5e0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding: 70px 0;
+            }
+            .hero h1 {
+                font-size: 35px;
+            }
+            .profile-photo {
+                width: 190px;
+                height: 190px;
+                margin-top: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">MY PROFILE.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang Saya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p class="mb-2">HALO, SELAMAT DATANG!</p>
+                    <h1>Saya <span>Abil Fida Ismail</span></h1>
+                    <h4 class="mb-3">Mahasiswa Teknik Informatika</h4>
+                    <p>Saya adalah mahasiswa yang memiliki ketertarikan terhadap teknologi, pemrograman, dan pengembangan aplikasi berbasis web.</p>
+                    <a href="#about" class="btn btn-custom mt-3">Kenali Saya</a>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img src="images/foto-profil.jpg" alt="Foto Profil Nama Mahasiswa" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang <span>Saya</span></h2>
+                <p>Mengenal lebih dekat profil pribadi saya</p>
+            </div>
+            <div class="about-card">
+                <p>Halo! Perkenalkan, nama saya Abil Fida Ismail. Saya merupakan mahasiswa yang sedang menempuh pendidikan di bidang teknik informatika. Saya memiliki semangat untuk terus belajar dan mengembangkan kemampuan di dunia teknologi.</p>
+                <p>Saya tertarik mempelajari pemrograman komputer, pengembangan website, desain antarmuka, serta teknologi digital. Menurut saya, teknologi merupakan salah satu bidang yang memiliki peluang besar untuk menciptakan inovasi.</p>
+                <p>Selain mengikuti kegiatan perkuliahan, saya juga berusaha meningkatkan kemampuan melalui praktikum, mengerjakan proyek sederhana, dan mempelajari berbagai teknologi baru. Saya berharap dapat menjadi individu yang kreatif, produktif, dan mampu memberikan kontribusi positif.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section-padding bg-white" id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Riwayat <span>Pendidikan</span></h2>
+                <p>Perjalanan pendidikan saya</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <div class="education-icon">🎓</div>
+                        <h5>Perguruan Tinggi Universitas Teknologi Bandung</h5>
+                        <p class="text-primary fw-bold">Program Studi Teknik Informatika</p>
+                        <p class="text-secondary mb-0">Sedang menempuh pendidikan tinggi dan mempelajari teknologi informasi.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <div class="education-icon">🏫</div>
+                        <h5>Sekolah Menengah Atas / Kejuruan</h5>
+                        <p class="text-primary fw-bold">SMK Telkom Bandung</p>
+                        <p class="text-secondary mb-0">Menyelesaikan pendidikan menengah sebagai dasar perjalanan akademik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section-padding" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Keahlian <span>Saya</span></h2>
+                <p>Teknologi dan kemampuan yang sedang saya pelajari</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">🌐</div>
+                        <h6>HTML</h6>
+                        <small class="text-secondary">Web Structure</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h6>CSS</h6>
+                        <small class="text-secondary">Web Design</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h6>JavaScript</h6>
+                        <small class="text-secondary">Web Interaction</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">📱</div>
+                        <h6>Bootstrap</h6>
+                        <small class="text-secondary">Responsive Design</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section-padding contact-section" id="contact">
+        <div class="container text-center">
+            <h2>Mari Terhubung!</h2>
+            <p class="mt-3">Terima kasih telah mengunjungi website profil saya. Senang dapat berbagi informasi mengenai diri saya.</p>
+            <button class="btn btn-light mt-3 px-4" onclick="tampilkanPesan()">Tampilkan Pesan</button>
+            <p id="pesan"></p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="mb-0">&copy; 2026 Abil Fida Ismail. Personal Portfolio | Dibuat dengan HTML, CSS, Bootstrap & JavaScript.</p>
+    </footer>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CUSTOM JAVASCRIPT -->
+    <script>
+        function tampilkanPesan() {
+            const sekarang = new Date();
+            const waktu = sekarang.toLocaleString('id-ID', {
+                dateStyle: 'full',
+                timeStyle: 'short'
+            });
+
+            document.getElementById("pesan").innerHTML =
+                "Terima kasih telah mengunjungi profil saya!<br>" +
+                "Halaman dikunjungi pada: " + waktu;
+        }
+    </script>
+
+</body>
+</html>
